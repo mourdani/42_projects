@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Canal_message" ALTER COLUMN "time" SET DEFAULT CURRENT_TIMESTAMP;

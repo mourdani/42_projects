@@ -1,0 +1,13 @@
+.achievement {
+	border: 2px solid black;
+	margin: 5px;
+	padding:8px;
+	flex-direction: row;
+	display: flex;
+	justify-content: space-between;
+}
+
+.achievement-name {
+	font-weight: 1000;
+	margin-right: 30px;
+}

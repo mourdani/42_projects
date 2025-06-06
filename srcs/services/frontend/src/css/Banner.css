@@ -1,0 +1,170 @@
+.banner {
+	display: flex;
+	align-items: center;
+	background-color: #749ed0;
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	border-bottom: 3px solid black;
+}
+
+.banner-text {
+	text-transform: uppercase;
+	font-family: Bungee Shade;
+	padding: 20px;
+	font-weight: 800;
+	font-size: 30px;
+	flex: 0 5 auto;
+}
+
+/*search bar*/
+
+.user-search {
+	border-left: solid;
+	border-right: solid;
+	height: 60px;
+	flex: 3 1 auto;
+	z-index: 5;
+}
+
+.input-bar {
+	display: inline-block;
+	vertical-align: middle;
+	color: black;
+	background-color: transparent;
+	border: 0px;
+	font-size: 20px;
+	height: 100%;
+	margin: 0px;
+	margin-left: 20px;
+	padding: 0px;
+}
+
+.input-bar:focus {
+	outline: none;
+}
+
+.search-results {
+	position: relative;
+	overflow: auto;
+	max-height: 200px;
+	background-color: #ffc6c6;
+	outline: solid black 3px;
+	transform: translateY(3px);
+	width: fit-content;
+}
+
+.search-results-item {
+	padding: 5px;
+	cursor: pointer;
+	border-bottom: solid 1px black;
+	display: flex;
+	cursor: pointer;
+	text-align: left;
+	position: relative;
+	color: rgb(0, 0, 0);
+	width: 90;
+	height: 100%;
+	text-decoration: none;
+}
+
+.search-results-item:last-of-type {
+	border-bottom: 0px;
+}
+
+.search-result-item:hover {
+	background-color: #ff9595;
+}
+
+.search-result-text {
+	flex: 2 0;
+	margin-right: 10px;
+}
+
+.search-result-activity-status {
+	flex: 0 1;
+}
+
+/*Menu*/
+
+.menu {
+	font-family: 'Courier New';
+	text-align: right;
+	flex: 0 1 auto;
+}
+
+.menu-button {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	padding-left: 15px;
+}
+
+.menu-button:hover {
+	background-color: #94afd1;
+	cursor: pointer;
+}
+
+.arrow {
+	width: 30px;
+	margin-right: 10px;
+}
+
+.avatar {
+	height: 40px;
+	width: 40px;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+.username {
+	font-size: 20px;
+	font-family: 'Courier New';
+	color: black;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.options {
+	position: absolute;
+	right: 0;
+	width: 200px;
+	overflow: auto;
+	background-color: #ffc6c6;
+	outline: solid 3px black;
+	transform: translateY(3px);
+	z-index: 2;
+}
+
+.option-box {
+	border-bottom: solid 2px black;
+	padding: 5px;
+}
+
+.option-box:hover {
+	background-color: #ff9595;
+}
+
+.option-box:last-of-type {
+	border-bottom: 0px;
+}
+
+.option {
+	display: inline-block;
+	cursor: pointer;
+	text-align: left;
+	position: relative;
+	color: rgb(0, 0, 0);
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+
+/* 
+salmon #f26762
+mustard #edba44
+blue #749ed0
+offwhite #eee2d6
+pink #f491b0
+*/

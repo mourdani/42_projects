@@ -1,0 +1,52 @@
+form {
+    margin-left: 5%;
+    display: grid;
+    width: 90%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+input[type=username] {
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+input[type=file] {
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+input[type=submit] {
+    margin-top: 20px;
+    background-color: #749ed0;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    font-size: large;
+    font-weight: bolder;
+    border: solid black 2px;
+    text-transform: capitalize;
+}
+input[type=submit]:hover {
+    background-color: #9aadc4;
+    cursor: pointer;
+}
+
+.file-cross {
+    height: 20px;
+    width: 20px;
+}
+.file-cross:hover {
+    cursor: pointer;
+}
+.avatar-input {
+    display: flex;
+}

@@ -1,0 +1,73 @@
+.up-user-display {
+	height: 105px;
+}
+
+.up-avatar {
+	height: 100px;
+	width: 100px;
+	object-fit: cover;
+	border-radius: 100%;
+	padding-top: 5px;
+	margin-left: 5px;
+	margin-right: 20px;
+	float: left;
+}
+
+.up-status {
+	width: 15px;
+	display: inline-block;
+}
+
+.up-username {
+	font-size: 30px;
+	margin-right: 10px;
+	padding-top: 20px;
+	display: inline-block;
+	/* transform: translateY(15px); */
+}
+
+.up-progress-bar {
+	display: inline-block;
+	font-size: 20px;
+}
+
+.up-menu {
+	float: right;
+	margin-right: 10px;
+	transform: translateY(-80px);
+	z-index: 1;
+}
+
+.icon {
+	float: right;
+	height: 30px;
+	width: 30px;
+	padding: 5px;
+}
+
+.icon:hover {
+	cursor: pointer;
+}
+
+.up-menu-list {
+	position: absolute;
+	width: 150px;
+	border: solid black 2px;
+	background-color: rgb(243, 250, 255);
+	transform: translate(-115px, 35px);
+}
+
+.up-menu-list-item {
+	padding: 5px;
+	margin-right: 0px;
+	border-bottom: solid black 2px;
+}
+
+.up-menu-list-item:last-child {
+	border-bottom: 0px;
+}
+
+.up-menu-list-item:hover {
+	background-color: rgb(188, 218, 240);
+	cursor: pointer;
+}

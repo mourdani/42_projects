@@ -1,0 +1,66 @@
+.end-game-container {
+    font-family: "Bungee Shade";
+    background-color: #749ed0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 100px auto;
+    border: 3px solid black;
+    width: calc(90vw - 5vh);
+    height: calc((90vw - 5vh) / 1.75);
+    max-width: calc(1.75 * (90vh - 10vh));
+    max-height: calc(90vh - 10vh);
+    box-sizing: border-box;
+}
+
+.player-recap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 2.5vh;
+}
+
+.player-avatar {
+    margin-top: 3vh;
+    width: 20vw;
+    max-width: 130px;
+    max-height: 130px;
+    height: 20vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.game-title {
+    font-size: 6vw;
+    margin: 0;
+}
+
+.mode-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.mode-button {
+    font-family: "Bungee Shade";
+    font-size: 2vw;
+    background-color: transparent;
+    border: none;
+    padding: 1vh 2vw;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.mode-button:hover {
+    color: rgba(44, 42, 42, 0.43);
+}
+
+.mode-button:active {
+    color: #f491b0;
+}

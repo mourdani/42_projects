@@ -1,0 +1,15 @@
+.page-content {
+	margin-top: 65px;
+}
+
+.page {
+	background-color: #f26762;
+	width: 90%;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	border: solid black 5px;
+	border-radius: 15px;
+	font-family: 'Courier New', Courier, monospace;
+	padding-bottom: 50px;
+}

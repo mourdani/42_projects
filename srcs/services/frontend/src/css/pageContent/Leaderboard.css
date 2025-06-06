@@ -1,0 +1,41 @@
+.result-item {
+	padding-left: 10px;
+	background-color: #3e203f;
+	border-radius: 5px;
+	margin: 10px;
+	color:white;
+	height:40px;
+}
+.result-item:hover {
+	background-color: #553848;
+	cursor: pointer;
+}
+
+.index {
+	display: inline-block;
+	font-size: 30px;
+	padding-right: 5px;
+}
+
+.leaderboard-username {
+	display: inline-block;
+	margin-left: 10px;
+	color:white;
+	font-size: 20px;
+}
+
+.leaderboard-avatar {
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	display: inline-block;
+	transform: translateY(5px);
+	margin-left: 10px;
+	object-fit: cover;
+}
+
+.level {
+	float: right;
+	margin-right: 10px;
+	margin-top:5px;
+}

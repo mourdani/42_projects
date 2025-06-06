@@ -1,0 +1,1 @@
+#psql trsdnc < dumpfile

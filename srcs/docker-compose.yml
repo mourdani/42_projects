@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: postgresql
+    build:
+      context: .
+      dockerfile: services/postgresql/Dockerfile
+    ports:
+      - ${HOST_DB_PORT}:${CONTAINER_DB_PORT}
+    env_file:
+      - ${POSTGRES_ENV_PATH}
+    networks:
+      - db
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+      args:
+        DATABASE_URL: "postgres://trnscdnc:724LxVue1A8Pd28fZ@db:5432/transcendence?schema=public"
+    #command: tail -f /dev/null
+    #command: npm run start:dev
+    ports:
+      - ${HOST_API_PORT}:${CONTAINER_API_PORT}
+    env_file:
+      - ${API_ENV_PATH}
+    volumes:
+      - ${API_DATA_PATH}:/usr/src/app
+    networks:
+      - db
+      - app
+    depends_on:
+      - db
+    healthcheck:
+      test: [ "CMD-SHELL", "curl localhost:3000/posts" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: services/frontend/Dockerfile
+    ports:
+      - ${HOST_FRONTEND_PORT}:${CONTAINER_FRONTEND_PORT}
+    env_file:
+      - ${FRONTEND_ENV_PATH}
+    volumes:
+      - ${FRONTEND_DATA_PATH}:/usr/src/app
+    networks:
+      - app
+    depends_on:
+      - db
+    healthcheck:
+      test: [ "CMD-SHELL", "curl localhost:3000/posts" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: norminet@42.fr
+      PGADMIN_DEFAULT_PASSWORD: norminet
+    networks:
+      - db
+    depends_on:
+      - db
+    ports:
+      - "5050:80"
+    restart: always
+
+volumes:
+  db_data:
+    name: "db_data"
+
+  app_data:
+    name: "app_data"
+
+networks:
+  db:
+  app:
