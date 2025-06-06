@@ -1,0 +1,41 @@
+.login-buttons {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	background-color: #f26762;
+	height: 150px;
+	width: 300px;
+	border-radius: 15px;
+	border: 5px solid #391f0a ;
+}
+
+.login-button {
+	height: 150px;
+	width: 300px;
+	position:relative;
+	background-color: transparent;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	font-size: 50px;
+	border-radius: 10px;
+}
+
+.login-button:hover {
+	background-color: #f491b0;
+}
+
+.login-text {
+	font-family: Bungee Shade;
+	padding-top:40px;
+}
+
+/* 
+salmon #f26762
+mustard #edba44
+blue #749ed0
+offwhite #eee2d6
+pink #f491b0
+*/

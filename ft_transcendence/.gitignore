@@ -1,0 +1,14 @@
+node_modules/
+dist/
+# SQL Server files
+*.mdf
+*.ldf
+.vscode
+<<<<<<< HEAD
+.aider*
+=======
+.idea
+*.png
+*.jpeg
+*.jpg
+>>>>>>> main

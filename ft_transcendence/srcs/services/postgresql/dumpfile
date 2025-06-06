@@ -1,0 +1,219 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.3 (Debian 15.3-1.pgdg120+1)
+-- Dumped by pg_dump version 15.3 (Debian 15.3-1.pgdg120+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: block; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public.block (
+    blocking_id integer,
+    blocked_id integer
+);
+
+
+ALTER TABLE public.block OWNER TO "doRfecTo";
+
+--
+-- Name: canal; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public.canal (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    type numeric,
+    password character varying NOT NULL
+);
+
+
+ALTER TABLE public.canal OWNER TO "doRfecTo";
+
+--
+-- Name: canal_id_seq; Type: SEQUENCE; Schema: public; Owner: doRfecTo
+--
+
+ALTER TABLE public.canal ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.canal_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: friendship; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public.friendship (
+    relating_id integer NOT NULL,
+    related_id integer,
+    relation numeric[]friend
+);
+
+
+ALTER TABLE public.friendship OWNER TO "doRfecTo";
+
+--
+-- Name: match_history; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public.match_history (
+    victor_id integer NOT NULL,
+    loser_id integer NOT NULL,
+    "time" timestamp without time zone NOT NULL,
+    victor_score int NOT NULL
+    loser_score int NOT NULL
+);
+
+
+ALTER TABLE public.match_history OWNER TO "doRfecTo";
+
+--
+-- Name: user; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public."user" (
+    id integer NOT NULL,
+    avatar character varying[]
+);
+
+
+ALTER TABLE public."user" OWNER TO "doRfecTo";
+
+--
+-- Name: user_ID_seq; Type: SEQUENCE; Schema: public; Owner: doRfecTo
+--
+
+ALTER TABLE public."user" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."user_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+--
+-- Name: achievement; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public.achievement (
+    achievement_id integer NOT NULL,
+    name character varying,
+    description character varying
+);
+
+
+ALTER TABLE public.achievement OWNER TO "doRfecTo";
+
+--
+-- Name: earned_achievement; Type: TABLE; Schema: public; Owner: doRfecTo
+--
+
+CREATE TABLE public.user_achievement (
+    user_id integer NOT NULL,
+    achievement_id integer NOT NULL,
+);
+
+
+ALTER TABLE public.user_achievement OWNER TO "doRfecTo";
+
+--
+-- Data for Name: block; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public.block (blocking_id, blocked_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: canal; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public.canal (id, name, type, password) FROM stdin;
+\.
+
+
+--
+-- Data for Name: friendship; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public.friendship (relating_id, related_id, relation) FROM stdin;
+\.
+
+
+--
+-- Data for Name: match_history; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public.match_history (victor_id, loser_id, "time", victor_score, loser_score) FROM stdin;
+\.
+
+
+--
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public."user" (id, avatar) FROM stdin;
+\.
+
+--
+-- Data for Name: achievement; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public."achievement" (achievement_id, name, description) FROM stdin;
+\.
+
+--
+-- Data for Name: user_achievement; Type: TABLE DATA; Schema: public; Owner: doRfecTo
+--
+
+COPY public."user_achievement" (user_id, achievement_id) FROM stdin;
+\.
+
+--
+-- Name: canal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: doRfecTo
+--
+
+SELECT pg_catalog.setval('public.canal_id_seq', 1, false);
+
+
+--
+-- Name: user_ID_seq; Type: SEQUENCE SET; Schema: public; Owner: doRfecTo
+--
+
+SELECT pg_catalog.setval('public."user_ID_seq"', 1, false);
+
+
+--
+-- Name: user user_pkey; Type: CONSTRAINT; Schema: public; Owner: doRfecTo
+--
+
+ALTER TABLE ONLY public."user"
+    ADD CONSTRAINT user_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

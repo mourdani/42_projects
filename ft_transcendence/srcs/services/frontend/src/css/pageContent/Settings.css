@@ -1,0 +1,40 @@
+h1 {
+	text-align: center;
+}
+
+.error-message {
+	font-size: small;
+	padding-top: 5px;
+	color: rgb(76, 0, 0);
+	font-size: 16px;
+}
+
+.avatar-preview {
+	width: 200px;
+}
+
+.twofa-button {
+	margin-top: 20px;
+	background-color: #749ed0;
+	font-family: 'Courier New', Courier, monospace;
+	padding: 10px;
+	font-size: large;
+	font-weight: bolder;
+	border: solid black 2px;
+	text-transform: capitalize;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.twofa-button:hover {
+	background-color: #9aadc4;
+	cursor: pointer;
+}
+
+/* 
+salmon #f26762
+mustard #edba44
+blue #749ed0
+offwhite #eee2d6
+pink #f491b0
+*/

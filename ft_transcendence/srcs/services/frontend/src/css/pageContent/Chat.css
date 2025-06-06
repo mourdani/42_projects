@@ -1,0 +1,334 @@
+/* ChatPage.css */
+
+/* General styles */
+.chat-container {
+  position: fixed;
+  top: 50px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  z-index: 1;
+}
+
+
+/* Channel and User lists */
+.canals-list,
+.users-list {
+  position: relative;
+  flex-basis: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f26762;
+  border: 5px solid #000000;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.canals-list h2,
+.users-list h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  top: 1;
+  padding: 10px;
+}
+
+.canals-list ul,
+.users-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.canals-list li,
+.users-list li {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  position: relative;
+  display: flex;
+  /* Make li a flex container */
+  /* justify-content: space-between; */
+  /* Align items to left and right */
+  gap: 0;
+  flex-wrap: nowrap;
+  /* Ensure items don't wrap onto next line */
+}
+
+.canals-list li:hover,
+.users-list li:hover {
+  background-color: #e0e0e0;
+}
+
+.canals-list {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.canals-list button,
+.users-list button {
+  background-color: #749ed0;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.invite-button {
+  width: 30px;
+  color: black;
+}
+
+.canals-list button:first-child {
+  background-color: #edba44;
+}
+
+.canals-list button:hover {
+  background-color: #008CBA;
+}
+
+.canals-list button:first-child:hover {
+  background-color: #f26762;
+}
+
+/* User list items */
+.users-list li {
+  position: relative;
+}
+
+.users-list li span {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.users-list li span:hover {
+  background-color: #e0e0e0;
+}
+
+/* User list item buttons */
+.users-list li div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
+.users-list li div button:hover {
+  background-color: #008CBA;
+}
+
+.users-list li div button:first-child {
+  background-color: #edba44;
+}
+
+.users-list li div button:first-child:hover {
+  background-color: #f26762;
+}
+
+
+/* Modal styles */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.modal-content {
+  background-color: #f1f1f1;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.modal h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.input-labels,
+.input-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.input-labels label {
+  margin-bottom: 3px;
+}
+
+.modal input,
+.modal select {
+  margin-bottom: 10px;
+}
+
+.modal .btn {
+  width: calc(50% - 10px);
+  padding: 8px;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  border: none;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  background-color: #749ed0;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.modal-buttons button:hover {
+  background-color: #008CBA;
+}
+
+.modal-buttons button:first-child {
+  background-color: #edba44;
+}
+
+.modal-buttons button:first-child:hover {
+  background-color: #f26762;
+}
+
+
+/* Chat messages */
+.chat-messages {
+  flex-basis: 60%;
+  padding: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee2d6;
+  border: 5px solid #f26762;
+  border-radius: 10px;
+}
+
+.chat-messages h1 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.chat-messages ul {
+  padding: 0 0px;
+  margin: 0px;
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.message {
+  margin-bottom: 3px;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
+
+.message-content {
+  display: flex;
+  align-items: baseline;
+  margin-left: 0px;
+}
+
+
+.message-sender {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #749ed0;
+}
+
+.current-user .message-content {
+  margin-bottom: 3px;
+  border-radius: 3px;
+  background-color: #ccd8e6;
+}
+
+.message-timestamp {
+  color: #e7e1e1;
+}
+
+
+
+
+
+/* Chat input */
+
+.chat-input {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chat-input button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: #749ed0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chat-input button:hover {
+  background-color: #0052a3;
+}
+
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .chat-container {
+    flex-direction: column;
+  }
+
+  .canals-list,
+  .users-list {
+    flex-basis: 100%;
+  }
+}

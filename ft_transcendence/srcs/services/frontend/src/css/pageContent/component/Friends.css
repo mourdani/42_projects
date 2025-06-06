@@ -1,0 +1,46 @@
+.friend {
+	background-color: #3e203f;
+	border-radius: 5px;
+	color:white;
+	height:40px;
+	width: 100%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	margin-bottom: 5px;
+}
+.friend:hover {
+	background-color: #553848;
+}
+.friend:last-child {
+	margin-bottom: 0px;
+}
+
+.friend-avatar {
+	height: 30px;
+	width: 30px;
+	object-fit: cover;
+	border-radius: 100%;
+	margin-left: 10px;
+}
+
+.friend-username {
+	font-size: 20px;
+	flex: 1;
+	align-items: center;
+}
+
+.request-buttons {
+	display: flex;
+	margin-right: 10px;
+}
+
+.request-button {
+	height: 40px;
+}
+.request-button:hover > friend {
+	cursor: pointer;
+}

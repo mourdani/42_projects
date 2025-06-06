@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id       Int     @id @default(autoincrement())
+    username String  @unique
+    avatar   String?
+    exp      Int     @default(0)
+
+    canal_user_relation canal_user_relation[]
+
+    relating_user Friendship[] @relation("relating_user")
+    related_user  Friendship[] @relation("related_user")
+
+    player1_user match_history[] @relation("player1_user")
+    player2_user match_history[] @relation("player2_user")
+
+    blocking_user Block[] @relation("blocking_user")
+    blocked_user  Block[] @relation("blocked_user")
+
+    user            earned_achievement[] @relation("user")
+    sender_username User_message[]       @relation("sender_username")
+    receiver_id     User_message[]       @relation("receiver_id")
+}
+
+model TwoFASecret {
+    id          Int  @id
+    twoFASecret Json
+}
+
+model Canal {
+    id       Int        @id @default(autoincrement())
+    name     String     @unique
+    type     canal_type @default(public)
+    password String?
+
+    canal_user_relation canal_user_relation[]
+    Room_message        Canal_message[]
+}
+
+enum canal_type {
+    public
+    protected
+}
+
+model User_message {
+    id Int @id @default(autoincrement())
+
+    content String
+    time    DateTime @default(now()) @db.Time()
+
+    sender_id       Int
+    sender_username String
+    receiver_id     Int
+
+    sender   User @relation(fields: [sender_username], references: [username], name: "sender_username")
+    receiver User @relation(fields: [receiver_id], references: [id], name: "receiver_id")
+}
+
+model Canal_message {
+    id Int @id @default(autoincrement())
+
+    content String
+    time    DateTime @default(now()) @db.Time()
+
+    sender_id       Int
+    sender_username String
+    canal_id        Int
+
+    canal Canal @relation(fields: [canal_id], references: [id])
+}
+
+// relation between canals and users
+
+model canal_user_relation {
+    canal    Canal @relation(fields: [canal_id], references: [id])
+    canal_id Int
+
+    user    User @relation(fields: [user_id], references: [id])
+    user_id Int
+
+    is_joined     Boolean
+    is_owner      Boolean
+    is_admin      Boolean
+    is_banned     Boolean
+    is_muted      Boolean
+
+    @@id([canal_id, user_id])
+}
+
+// FRIENDSHIP TABLE
+model Friendship {
+    relating_id Int
+    related_id  Int
+
+    relating_user User @relation("relating_user", fields: [relating_id], references: [id])
+    related_user  User @relation("related_user", fields: [related_id], references: [id])
+
+    relation relation_status
+
+    @@id([relating_id, related_id])
+}
+
+enum relation_status {
+    F 
+    S 
+    R 
+}
+
+// MATCH HISTORY TABLE
+model match_history {
+    match_id Int @id @default(autoincrement())
+
+    winner_id Int
+    loser_id  Int
+
+    winner_user User @relation("player1_user", fields: [winner_id], references: [id])
+    loser_user  User @relation("player2_user", fields: [loser_id], references: [id])
+
+    time         DateTime @default(now())
+    winner_score Int
+    loser_score  Int
+}
+
+// BLOCK TABLE
+model Block {
+    blocking_id Int
+    blocked_id  Int
+
+    blocking_user User @relation("blocking_user", fields: [blocking_id], references: [id])
+    blocked_user  User @relation("blocked_user", fields: [blocked_id], references: [id])
+
+    @@id([blocking_id, blocked_id])
+}
+
+// ACHIEVEMENT TABLE
+model achievement {
+    achievement_id   Int    @id
+    name             String
+    description      String
+    win_requirement  Int?
+    lose_requirement Int?
+    play_requirement Int?
+
+    achievement earned_achievement[] @relation("achievement")
+}
+
+model earned_achievement {
+    user_id        Int
+    achievement_id Int
+
+    user        User        @relation("user", fields: [user_id], references: [id])
+    achievement achievement @relation("achievement", fields: [achievement_id], references: [achievement_id])
+
+    @@id([user_id, achievement_id])
+}
+
+// to migrate : npx prisma migrate dev --name init --preview-feature
